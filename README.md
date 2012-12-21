@@ -1,4 +1,4 @@
-halosigner
+HaloSigner
 ==========
 
 Halo Content Resigner
