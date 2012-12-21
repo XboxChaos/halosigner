@@ -1,0 +1,22 @@
+﻿<Application x:Class="HaloSigner.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Startup="Application_Startup" StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Accents/Blue.xaml"/>
+                <ResourceDictionary Source="Themes/Accents/Green.xaml"/>
+                <ResourceDictionary Source="Themes/Accents/Lime.xaml"/>
+                <ResourceDictionary Source="Themes/Accents/Orange.xaml"/>
+                <ResourceDictionary Source="Themes/Accents/Pink.xaml"/>
+                <ResourceDictionary Source="Themes/Accents/Purple.xaml"/>
+                <ResourceDictionary Source="Themes/Accents/Red.xaml"/>
+                <ResourceDictionary Source="Themes/Accents/Silver.xaml"/>
+                <ResourceDictionary Source="MetroControls.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

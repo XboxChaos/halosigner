@@ -1,0 +1,55 @@
+﻿<Window x:Class="HaloSigner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ReachGPSResigner" Height="220" Width="483.333"
+        ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None"
+        Background="{x:Null}" WindowStartupLocation="CenterScreen"
+        AllowDrop="True" DragEnter="MainWindow_DragOver" DragOver="MainWindow_DragOver" Drop="MainWindow_Drop">
+        <Grid>
+            <Rectangle x:Name="recMask" Fill="White" Margin="10,10,10,10" Stroke="Black" Opacity="0.60" Visibility="Hidden" />
+            <!--DropShadow-->
+            <Border AllowDrop="True" DragOver="MainWindow_DragOver" Margin="10" BorderThickness="0,0,1,1" BorderBrush="{DynamicResource AccentColour}">
+                <Border.Effect>
+                    <DropShadowEffect Color="{DynamicResource AccentPColour}"
+						Direction="10"
+						BlurRadius="12"
+						ShadowDepth="1" />
+                </Border.Effect>
+                <Grid x:Name="formBackground" Background="#333333" />
+            </Border>
+
+            <Border 
+				x:Name="headerBar" 
+				Margin="10,10,10,0"
+				Width="Auto" 
+				Height="32" 
+				VerticalAlignment="Top"
+				DockPanel.Dock="Top" 
+				Background="{x:Null}" 
+				BorderThickness="0, 0, 0, 0"
+				BorderBrush="#3b5998">
+                <Grid>
+                <Thumb 
+						x:Name="headerThumb" 
+						Opacity="0" 
+						Background="{x:Null}" 
+						Foreground="{x:Null}" 
+						Margin="0,0,0,-12" DragDelta="headerThumb_DragDelta" Grid.ColumnSpan="2"
+						/>
+                    <Rectangle Height="3" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,0,1,0" StrokeThickness="0" Fill="{DynamicResource AccentColour}" Grid.ColumnSpan="2" />
+                    <Rectangle Width="109" Height="24" Fill="{DynamicResource AccentColour}" VerticalAlignment="Top" StrokeThickness="0" HorizontalAlignment="Left" Margin="0,3,0,0" />
+                    <Image Source="Images/settings.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,2,0,0" Height="25" />
+                    <TextBlock Text="halosigner" Foreground="White" FontFamily="Segoe UI Light" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="61" Margin="16,3,0,0" FontSize="14" />
+
+                    <Button Name="btnClose" Style="{DynamicResource MetroClose}" Width="12" Height="11" Margin="0,0,11,12" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="btnClose_Click" Grid.Column="1"/>
+                    <Button Name="btnMinimize" Style="{DynamicResource MetroMinimize}" Width="12" Height="11" Margin="0,0,29,13" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="btnMinimize_Click" Grid.Column="1"/>
+                </Grid>
+            </Border>
+
+        <TextBlock x:Name="txtInfo" Text="Drop your Halo content files here, we'll do all the technical stuff ;)" Foreground="White" FontFamily="Segoe UI Semilight" FontSize="20" Margin="85,72,85,57" TextWrapping="Wrap" VerticalAlignment="Center"/>
+
+        <!--<Grid>
+            <Rectangle Fill="{x:Null}" DragEnter="MainWindow_DragEnter" Margin="0,30,0,0" AllowDrop="True" />
+        </Grid>-->
+    </Grid>
+</Window>
