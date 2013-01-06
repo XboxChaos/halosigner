@@ -58,14 +58,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Blam3\Halo_3\CampaignSave.cs" />
-    <Compile Include="Blam3\Halo_3_ODST\CampaignSave.cs" />
-    <Compile Include="Blam3\SaltedSHA1.cs" />
+    <Compile Include="Halo3\CampaignSave.cs" />
+    <Compile Include="Halo3\ODST\CampaignSave.cs" />
     <Compile Include="Containers\GPD.cs" />
     <Compile Include="Containers\GPDBinarySetting.cs" />
     <Compile Include="Containers\GPDSetting.cs" />
     <Compile Include="Containers\XDBF.cs" />
     <Compile Include="Containers\XDBFEntry.cs" />
+    <Compile Include="Halo4\CampaignSave.cs" />
     <Compile Include="HCEX\CampaignSave.cs" />
     <Compile Include="IO\BigEndianReader.cs" />
     <Compile Include="IO\BigEndianStream.cs" />
@@ -78,7 +78,7 @@
     <Compile Include="Properties\Settings.Designer.cs" />
     <Compile Include="Reach\CampaignSave.cs" />
     <Compile Include="Reach\ReachGPD.cs" />
-    <Compile Include="Reach\SaltedSHA1.cs" />
+    <Compile Include="Blam\SaltedSHA1.cs" />
     <Compile Include="Util\ContentTypes.cs" />
   </ItemGroup>
   <ItemGroup>

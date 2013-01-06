@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2011 Aaron Dierking
+ * Copyright (C) 2013 Aaron Dierking
  * This file is part of halosigner.
  *
  * halosigner is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@ using System.Text;
 using System.IO;
 using HaloSigner.Blam;
 
-namespace HaloSigner.Reach
+namespace HaloSigner.Halo4
 {
     /// <summary>
     /// Provides methods for managing Halo: Reach campaign saves.
@@ -70,7 +70,7 @@ namespace HaloSigner.Reach
         private void Verify()
         {
             // Check the file size
-            if (_stream.Length != 0xA70000)
+            if (_stream.Length != 0xAD0000)
             {
                 throw new ArgumentException("Invalid save file");
             }
@@ -79,7 +79,9 @@ namespace HaloSigner.Reach
             byte[] header = new byte[4];
             _stream.Position = 0;
             _stream.Read(header, 0, 4);
-            if (header[0] != 0x60 || header[1] != 0xCC || header[2] != 0xCC || header[3] != 0xB2)
+
+            // File magic = AA 46 AF 2F
+            if (header[0] != 0xAA || header[1] != 0x46 || header[2] != 0xAF || header[3] != 0x2F)
             {
                 throw new ArgumentException("Invalid save file");
             }
@@ -94,12 +96,12 @@ namespace HaloSigner.Reach
             SaltedSHA1 hasher = new SaltedSHA1();
 
             // Fill the digest area with 0's and then hash the whole buffer
-            _stream.Position = 0x1E708;
+            _stream.Position = 0x2D25C;
             _stream.Write(new byte[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0, 20);
             hasher.TransformFinalBlock(_stream.GetBuffer(), 0, _stream.GetBuffer().Length);
             
             // Write the new digest
-            _stream.Position = 0x1E708;
+            _stream.Position = 0x2D25C;
             _stream.Write(hasher.Hash, 0, 20);
         }
 

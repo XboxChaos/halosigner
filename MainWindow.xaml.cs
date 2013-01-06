@@ -129,6 +129,10 @@ namespace HaloSigner
                     ResignHCEXCampaignSave(path);
                     break;
 
+                case Util.ContentType.Halo4CampaignSave:
+                    ResignHalo4CampaignSave(path);
+                    break;
+
                 default:
                     throw new ArgumentException("Unknown file type");
             }   
@@ -167,7 +171,7 @@ namespace HaloSigner
 
         private void ResignHalo3CampaignSave(string path)
         {
-            Blam3.Halo_3.CampaignSave save = new Blam3.Halo_3.CampaignSave(path);
+            Halo3.CampaignSave save = new Halo3.CampaignSave(path);
             save.Resign();
             save.WriteTo(path);
 
@@ -176,7 +180,7 @@ namespace HaloSigner
 
         private void ResignHalo3ODSTCampaignSave(string path)
         {
-            Blam3.Halo_3_ODST.CampaignSave save = new Blam3.Halo_3_ODST.CampaignSave(path);
+            Halo3.ODST.CampaignSave save = new Halo3.ODST.CampaignSave(path);
             save.Resign();
             save.WriteTo(path);
 
@@ -186,6 +190,15 @@ namespace HaloSigner
         private void ResignHCEXCampaignSave(string path)
         {
             HCEX.CampaignSave save = new HCEX.CampaignSave(path);
+            save.Resign();
+            save.WriteTo(path);
+
+            ShowMessage("Gamesave resigned successfully!");
+        }
+
+        private void ResignHalo4CampaignSave(string path)
+        {
+            Halo4.CampaignSave save = new Halo4.CampaignSave(path);
             save.Resign();
             save.WriteTo(path);
 

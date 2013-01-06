@@ -31,7 +31,8 @@ namespace HaloSigner.Util
         ReachCampaignSave,
         Halo3CampaignSave,
         Halo3ODSTCampaignSave,
-        HCEXCampaignSave
+        HCEXCampaignSave,
+        Halo4CampaignSave
     }
 
     public static class ContentTypes
@@ -53,6 +54,8 @@ namespace HaloSigner.Util
                 return ContentType.Halo3CampaignSave;
             else if (header[0] == 0x4C && header[1] == 0x7D && header[2] == 0xEB && header[3] == 0x9F)
                 return ContentType.Halo3ODSTCampaignSave;
+            else if (header[0] == 0xAA && header[1] == 0x46 && header[2] == 0xAF && header[3] == 0x2F)
+                return ContentType.Halo4CampaignSave;
 
             if (stream.Length < 0x40A018)
                 return ContentType.Unknown;

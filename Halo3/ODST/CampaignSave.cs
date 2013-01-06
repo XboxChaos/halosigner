@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using HaloSigner.Blam;
 
-namespace HaloSigner.Blam3.Halo_3_ODST
+namespace HaloSigner.Halo3.ODST
 {
     /// <summary>
     /// Provides methods for managing Halo: Reach campaign saves.
